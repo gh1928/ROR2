@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 public class HitEffect : MonoBehaviour
 {    
-    private ParticleSystem particleSystem;
+    private new ParticleSystem particleSystem;
     private IObjectPool<HitEffect> pool;
 
     public float lifeTime = 0.3f;

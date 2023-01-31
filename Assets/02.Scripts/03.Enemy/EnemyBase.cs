@@ -16,26 +16,32 @@ public class EnemyBase : MonoBehaviour
         GameOver,
     }
 
-    private Stats stats;
-    private Animator animator;
-    private Rigidbody rb;
-    public AttackDef attackDef;
+    protected Stats stats;
+    protected Animator animator;
+    public static readonly int hashSpeed = Animator.StringToHash("Speed");
+    public static readonly int hashAttack = Animator.StringToHash("Attack");
+    protected Rigidbody rb;
+    public AttackDef baseAttackDef;
     public float aggroRange = 200f;
     protected float speed;
-    public float patrolRaidus = 3f;
+    
     protected bool isSpawnEnd = false;
 
-    private Transform player;
-    private NavMeshAgent agent;
+    protected Transform player;
+    protected NavMeshAgent agent;
 
-    private float distanceToPlayer;       
-    private float distanceToDest;
-    private Vector3 dest;
+    protected float distanceToPlayer;       
+
     public float chaseInterval = 0.25f;
     public float idleTime = 2f;
-    protected float timer = 0f;    
+    protected float timer = 0f;
+        
+    public float patrolRaidus = 30f;
+    public float patrolTime = 3f;
+    protected float distanceToDest;
+    protected Vector3 dest;
 
-    private States state = States.None;
+    protected States state = States.None;
     public States State
     {
         get { return state; }
@@ -59,17 +65,12 @@ public class EnemyBase : MonoBehaviour
                     agent.isStopped = true;
                     break;
                 case States.Patrol:
+                    timer = 0f;
                     agent.speed = speed;
-                    NavMeshHit hit;
-                    Vector3 randomDirection;
-                    do
+                    if(GetRandomPoint(transform.position, patrolRaidus, out dest))
                     {
-                        randomDirection = Random.insideUnitSphere * patrolRaidus;
-                        randomDirection += transform.position;                        
-                    }
-                    while (NavMesh.SamplePosition(randomDirection, out hit, patrolRaidus, 2));
-                    dest = hit.position;
-                    agent.SetDestination(dest);
+                        agent.SetDestination(dest);                        
+                    }                    
                     agent.isStopped = false;
                     break;
                 case States.Chase:
@@ -78,7 +79,8 @@ public class EnemyBase : MonoBehaviour
                     agent.isStopped = false;
                     break;
                 case States.Attack:
-                    timer = attackDef.speed;            
+                    timer = baseAttackDef.speed;
+                    agent.isStopped = false;
                     break;
                 case States.GameOver:
                     agent.isStopped = true;
@@ -86,7 +88,7 @@ public class EnemyBase : MonoBehaviour
             }
         }
     }
-    private void Awake()
+    protected virtual void Awake()
     {
         stats = GetComponent<Stats>();
         animator = GetComponent<Animator>();
@@ -94,8 +96,8 @@ public class EnemyBase : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         speed = stats.Speed;
         player = GameObject.FindWithTag("Player").transform;
-    }
-    private void Start()
+    } 
+    private void OnEnable()
     {
         State = States.Spawn;
     }
@@ -125,28 +127,44 @@ public class EnemyBase : MonoBehaviour
                 break;
         }
 
-        animator.SetFloat("Speed", agent.velocity.magnitude);
+        animator.SetFloat(hashSpeed, agent.velocity.magnitude);
     }
     protected void OnPlayerDie()
     {
         State = States.GameOver;
     }
+    bool GetRandomPoint(Vector3 center, float range, out Vector3 result)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return true;
+            }
+        }
+        result = Vector3.zero;
+        return false;
+    }
+
     protected void UpdateSpawn()
     {
         if(isSpawnEnd)
         {
-            State = States.Idle;
+            State = States.Patrol;
         }
     }
     protected void SpawnEnd()
     {
         isSpawnEnd = true;
     }
-    protected void UpdateAttack()
+    protected virtual void UpdateAttack()
     {
-        throw new System.NotImplementedException();
+        timer += Time.deltaTime;
     }
-    protected void UpdateChase()
+    protected virtual void UpdateChase()
     {
         timer += Time.deltaTime;
  
@@ -158,13 +176,16 @@ public class EnemyBase : MonoBehaviour
     }
     protected void UpdatePatrol()
     {
+        timer += Time.deltaTime;
+
         if (distanceToPlayer < aggroRange)
         {
             State = States.Chase;
             return;
         }
 
-        if (distanceToDest <= agent.stoppingDistance)
+        if (distanceToDest <= agent.stoppingDistance ||
+            timer > patrolTime)
         {
             State = States.Idle;
             return;

@@ -2759,13 +2759,13 @@ GameObject:
   m_Component:
   - component: {fileID: 9011264447984451066}
   - component: {fileID: 4216103955806466230}
-  - component: {fileID: 6100651046952895575}
   - component: {fileID: 7596770855638391209}
   - component: {fileID: -4974185072032056845}
   - component: {fileID: 2231062630082941472}
-  - component: {fileID: 256304128}
   - component: {fileID: -6362975106349206165}
   - component: {fileID: -6325584899838853333}
+  - component: {fileID: 2718377881528863835}
+  - component: {fileID: 2422997764118433290}
   m_Layer: 0
   m_Name: Bison
   m_TagString: Enemy
@@ -2809,20 +2809,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!136 &6100651046952895575
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8522395892329244480}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.5364542
-  m_Height: 5.444075
-  m_Direction: 2
-  m_Center: {x: 0, y: -0.27, z: 0.32808566}
 --- !u!195 &7596770855638391209
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2881,23 +2867,6 @@ MonoBehaviour:
   DamageInc: 2.4
   Speed: 3
   Armor: 0
---- !u!114 &256304128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8522395892329244480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc53b06d5bc744428df6cb03d902b59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDef: {fileID: 11400000, guid: e314e06c03805b548b12ed12351fa31d, type: 2}
-  aggroRange: 200
-  patrolRaidus: 3
-  chaseInterval: 0.25
-  idleTime: 2
 --- !u!114 &-6362975106349206165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2923,6 +2892,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageUI: {fileID: 0}
+--- !u!114 &2718377881528863835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522395892329244480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c539df3fbf052294da93cc0206876e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAttackDef: {fileID: 11400000, guid: 298ad7d43bdc1204ba479b180feb66a2, type: 2}
+  aggroRange: 200
+  chaseInterval: 0.25
+  idleTime: 2
+  patrolRaidus: 30
+  patrolTime: 3
+  charge: {fileID: 11400000, guid: a7f40a2fb35a4ef4bb7e012eeca45d86, type: 2}
+  attackRange: 5
+  chargeMaxRange: 40
+  chargeMinRange: 7
+  attackedForceY: 5
+  forceScale: 3
+--- !u!136 &2422997764118433290
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522395892329244480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.63
+  m_Height: 5.715169
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.27, z: 0.22957277}
 --- !u!1 &8583081571837839978
 GameObject:
   m_ObjectHideFlags: 0

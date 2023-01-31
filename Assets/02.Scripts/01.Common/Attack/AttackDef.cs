@@ -10,6 +10,15 @@ public class AttackDef : ScriptableObject
     public float ciriticalMultiplayer;
     public virtual void ExecuteAttack(GameObject attacker, GameObject defender, Vector3 hitpos)
     {
+        var aStats = attacker.GetComponent<Stats>();
+        var dStats = defender.GetComponent<Stats>();
+        var attack = CreatAttack(aStats, dStats);
+        var attackables = defender.GetComponent<AttackableCollector>().Attackables;
+
+        foreach (var attackable in attackables)
+        {
+            attackable.OnAttack(attacker, attack, hitpos);
+        }
     }
     public Attack CreatAttack(Stats attacker, Stats defender)
     {

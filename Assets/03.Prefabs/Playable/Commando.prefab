@@ -2351,6 +2351,8 @@ GameObject:
   - component: {fileID: 8550507534173101645}
   - component: {fileID: 8550507534173101646}
   - component: {fileID: 1864337763}
+  - component: {fileID: 1864337772}
+  - component: {fileID: 1465084343628020983}
   m_Layer: 9
   m_Name: Commando
   m_TagString: Player
@@ -2510,6 +2512,31 @@ MonoBehaviour:
   muzzleLeft: {fileID: 6827448272102105274}
   muzzleRight: {fileID: 8563263031376652662}
   muzzleflash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+--- !u!114 &1864337772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361134695506509785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc441fd1073f3a84381a52a2f1a2252b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 0}
+--- !u!114 &1465084343628020983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361134695506509785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc61ffda99675c444a0dcf786ea97066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4634872096366558699
 GameObject:
   m_ObjectHideFlags: 0
