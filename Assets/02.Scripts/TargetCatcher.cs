@@ -26,7 +26,8 @@ public class TargetCatcher : MonoBehaviour
 
         if(Input.GetMouseButton(0))
         {
-            Physics.Raycast(Camera.main.ViewportPointToRay(viewCenter), out hit, maxDistance);
+            if(!Physics.Raycast(Camera.main.ViewportPointToRay(viewCenter), out hit, maxDistance))
+                return;
             //Physics.Raycast(Camera.main.ViewportPointToRay(viewCenter), out hit, maxDistance, enemyMaskValue)
             if (hit.collider.tag == "Enemy")
             {

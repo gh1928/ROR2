@@ -427,9 +427,16 @@ GameObject:
   m_Component:
   - component: {fileID: 81963832687280548}
   - component: {fileID: 277326672490921570}
+  - component: {fileID: 316827261125434196}
+  - component: {fileID: 4407997365843672342}
+  - component: {fileID: -2623681533328093810}
+  - component: {fileID: 1781389916862763503}
+  - component: {fileID: -8434905462132433627}
+  - component: {fileID: 4596341239324046326}
+  - component: {fileID: -3015502812584264889}
   m_Layer: 0
   m_Name: Lemurian
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,6 +477,120 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!136 &316827261125434196
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750096760041446174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.52240837
+  m_Height: 2.5834959
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.3734659, z: 0.26240838}
+--- !u!195 &4407997365843672342
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750096760041446174}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.58
+  m_BaseOffset: 0.91
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 2
+--- !u!54 &-2623681533328093810
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750096760041446174}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1781389916862763503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750096760041446174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be1453229eda6844b6952b20b8d0eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 80
+  HealthInc: 24
+  HealthRegen: 0
+  HealthRegenInc: 0
+  Damage: 12
+  DamageInc: 2.4
+  Speed: 7
+  Armor: 0
+--- !u!114 &-8434905462132433627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750096760041446174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc53b06d5bc744428df6cb03d902b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDef: {fileID: 0}
+  aggroRange: 200
+  patrolRaidus: 3
+  chaseInterval: 0.25
+  idleTime: 2
+--- !u!114 &4596341239324046326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750096760041446174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc61ffda99675c444a0dcf786ea97066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3015502812584264889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750096760041446174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f7b8944180d9a428f502b96dbd6034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageUI: {fileID: 0}
 --- !u!1 &1010756644899852984
 GameObject:
   m_ObjectHideFlags: 0
