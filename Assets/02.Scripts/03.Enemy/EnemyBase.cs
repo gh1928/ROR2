@@ -69,7 +69,7 @@ public class EnemyBase : MonoBehaviour
                     agent.speed = speed;
                     if(GetRandomPoint(transform.position, patrolRaidus, out dest))
                     {
-                        agent.SetDestination(dest);                        
+                        agent.SetDestination(dest);
                     }                    
                     agent.isStopped = false;
                     break;
@@ -148,7 +148,6 @@ public class EnemyBase : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
-
     protected void UpdateSpawn()
     {
         if(isSpawnEnd)
