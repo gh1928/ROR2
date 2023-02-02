@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LemurianUpperMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/AimOrigin
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/CameraPivot
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/AimAssist
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hand_ik.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hand_ik.l/elbow_ik.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hand_ik.l/elbow_ik.l/elbow_ik.l_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hand_ik.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hand_ik.r/elbow_ik.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hand_ik.r/elbow_ik.r/elbow_ik.r_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/Hurtbox
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/Hurtbox
+      (1)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/tail2
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/tail2/Hurtbox
+      (2)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/tail2/tail3
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/tail2/tail3/Hurtbox
+      (3)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/tail2/tail3/tail4
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/tail2/tail3/tail4/Hurtbox
+      (4)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/tail1/tail2/tail3/tail4/tail4_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.l/calf.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.l/calf.l/foot.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.l/calf.l/foot.l/toe.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.l/calf.l/foot.l/toe.l/toe.l_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.l/calf.l/Hurtbox
+      (2)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.l/Hurtbox
+      (1)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.r/calf.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.r/calf.r/foot.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.r/calf.r/foot.r/toe.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.r/calf.r/foot.r/toe.r/toe.r_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.r/calf.r/Hurtbox
+      (2)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/hip/thigh.r/Hurtbox
+      (1)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/neck_ik
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/neck_ik/neck_ik_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/Hurtbox
+      (1)
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/Hurtbox
+      (2)
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidLower.l
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidLower.l/eyelidLower.l_end
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidLower.r
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidLower.r/eyelidLower.r_end
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidUpper.l
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidUpper.l/eyelidUpper.l_end
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidUpper.r
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidUpper.r/eyelidUpper.r_end
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/Hitbox
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/Hurtbox
+      (4)
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/jaw
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/jaw/jaw_end
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/MuzzleMouth
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/Hurtbox
+      (3)
+    m_Weight: 1
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/Hurtbox
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/Hurtbox
+      (1)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l/finger1.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l/finger1.l/finger1.l_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l/finger2.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l/finger2.l/finger2.l_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l/Hurtbox
+      (2)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l/thumb.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.l/upper_arm.l/lower_arm.l/thumb.l/thumb.l_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/Hurtbox
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/Hurtbox
+      (1)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r/finger1.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r/finger1.r/finger1.r_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r/finger2.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r/finger2.r/finger2.r_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r/Hurtbox
+      (2)
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r/thumb.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/shoulder.r/upper_arm.r/lower_arm.r/thumb.r/thumb.r_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/Hurtbox
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/tail_ik
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/tail_ik/tail_ik_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/foot_ik.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/foot_ik.l/knee_ik.l
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/foot_ik.l/knee_ik.l/knee_ik.l_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/foot_ik.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/foot_ik.r/knee_ik.r
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/foot_ik.r/knee_ik.r/knee_ik.r_end
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianMesh
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LogBookTarget
+    m_Weight: 0
+  - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LogBookTarget/LogBookCamera
+    m_Weight: 0

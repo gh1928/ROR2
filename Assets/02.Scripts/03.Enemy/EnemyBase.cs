@@ -41,6 +41,7 @@ public class EnemyBase : MonoBehaviour
     protected float distanceToDest;
     protected Vector3 dest;
 
+    protected float MaxHealth;
     protected States state = States.None;
     public States State
     {
@@ -80,7 +81,8 @@ public class EnemyBase : MonoBehaviour
                     break;
                 case States.Attack:
                     timer = baseAttackDef.speed;
-                    agent.isStopped = false;
+                    agent.velocity = Vector3.zero;
+                    agent.isStopped = true;
                     break;
                 case States.GameOver:
                     agent.isStopped = true;
@@ -91,17 +93,19 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Awake()
     {
         stats = GetComponent<Stats>();
+        MaxHealth = stats.Health;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         speed = stats.Speed;
         player = GameObject.FindWithTag("Player").transform;
     } 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         State = States.Spawn;
+        stats.Health = MaxHealth;
     }
-    private void Update()
+    protected virtual void Update()
     {
         if (State != States.GameOver)
         {
@@ -190,7 +194,6 @@ public class EnemyBase : MonoBehaviour
             return;
         }
     }
-
     protected void UpdateIdle()
     {
         timer += Time.deltaTime;

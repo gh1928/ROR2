@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c6369ada659264085b131c6bb96dea, type: 3}
   m_Name: Charge
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 10
   criticalChance: 1
   ciriticalMultiplayer: 2

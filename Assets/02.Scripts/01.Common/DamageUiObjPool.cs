@@ -6,12 +6,17 @@ using TMPro;
 
 public class DamageUiObjPool : MonoBehaviour
 {
+    static private DamageUiObjPool instance;
+    static public DamageUiObjPool Instance { get { return instance; } }
+
     public DamageUI normal;
     public DamageUI crit;    
     public IObjectPool<DamageUI> NormalPool { get; private set; }
     public IObjectPool<DamageUI> CritPool { get; private set; }
     private void Awake()
     {
+        instance = this;
+
         NormalPool = new ObjectPool<DamageUI>(
             CreateNormal,
             OnGet,

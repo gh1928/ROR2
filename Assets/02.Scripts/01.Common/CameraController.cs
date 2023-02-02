@@ -34,5 +34,5 @@ public class CameraController : MonoBehaviour
     private void UpdateAnimation()
     {
         animator.SetFloat(hashAimY, (1 - currentCameraRotationX / cameraRotationLimit ) * 0.45f);
-    }
+    }    
 }

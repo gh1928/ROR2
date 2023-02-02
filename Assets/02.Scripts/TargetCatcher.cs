@@ -30,8 +30,8 @@ public class TargetCatcher : MonoBehaviour
                 return;
             //Physics.Raycast(Camera.main.ViewportPointToRay(viewCenter), out hit, maxDistance, enemyMaskValue)
             if (hit.collider.tag == "Enemy")
-            {
-                OnClickEnemy.Invoke(hit.collider.gameObject, hit.point);
+            {                
+                OnClickEnemy.Invoke(hit.collider.transform.root.gameObject, hit.point);                
             }
             else
             {

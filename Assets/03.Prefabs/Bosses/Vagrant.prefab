@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2234986710293592692}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87537180369100296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MajorFrill.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7845231462490400758}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3587964929036169830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StandableSurface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1739609546098976202}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6767210873605550405}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7269858249647632390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8103175354815932335}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spinner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9219870424022561115}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AimCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064834627023825373}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MissileLaunchCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841806867181414226}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8359219864927079877}
   - component: {fileID: 2286959760767524442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VagrantMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408169134098532428}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8933846207653527769}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mdlVagrant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537228002870073385}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4515430290196274503}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VagrantArmature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1061230453172320675}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4919811162066704017}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DetatchedHull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8421973266070276491}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HullHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7209945611788049908}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 674251562507263032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2755526575345537832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VagrantBody (merge)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -808,7 +808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1645828842685983195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LogbookTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -840,7 +840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6135687931803691246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 7954805218696997311}
   - component: {fileID: 7954805218696997312}
   - component: {fileID: 8687977743411241952}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vagrant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -984,7 +984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f7b8944180d9a428f502b96dbd6034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageUI: {fileID: 0}
 --- !u!114 &7954805218696997312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,7 +1017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 817771598662879374}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1200853675496098764}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.008_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4600193588119694364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MajorFrill.003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5702543144358422821}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4716941681898861139}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MajorFrill.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7753838302548723136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hull.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1209,7 +1208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7304583145750617596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,7 +1240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9121408556117527213}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hull.004_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1272,7 +1271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 28696727028555027}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AimAssist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1303,7 +1302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5784961811971615020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CrouchOriginOverride
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5967842809246185251}
   - component: {fileID: 8069225893658273559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VagrantSkirtMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,7 +1449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4298519230580574305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrackingBombCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1481,7 +1480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5315031017428353918}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MajorFrill.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1513,7 +1512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7198243478901778446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hull.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1545,7 +1544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3588410669226656170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NovaCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,7 +1575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6763102180031161182}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightningParticles, Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,7 +1606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2546562232983193225}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.008_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1638,7 +1637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4397898601460962979}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hull.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1672,7 +1671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349729918522166409}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1704,7 +1703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5785089157979846000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StandableSurfacePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1736,7 +1735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5359058555079086892}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5596207302982785372}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1801,7 +1800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3611046977115008715}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MajorFrill.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1832,7 +1831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5092432820432386140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle1.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1864,7 +1863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2730455336619679315}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1896,7 +1895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6853253801596417811}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.008_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +1926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3900274790488761730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HealthBarOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3637235355540988465}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MajorFrill.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1989,7 +1988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8551133316278024148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2021,7 +2020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7528220860625205444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2053,7 +2052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4621834888063132331}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle3.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2085,7 +2084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3975819352469111334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpawnOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2116,7 +2115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1644347287348695903}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LogbookCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2147,7 +2146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3219243198332454628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BaseEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2180,7 +2179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 177960754761964604}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2212,7 +2211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4863835042925089121}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VagrantBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2244,7 +2243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6298042144387198833}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2276,7 +2275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7938910357122457962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tentacle2.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
