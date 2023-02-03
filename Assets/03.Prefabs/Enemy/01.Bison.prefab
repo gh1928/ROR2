@@ -2956,14 +2956,15 @@ MonoBehaviour:
   idleTime: 2
   patrolRaidus: 30
   patrolTime: 3
+  mainCollider: {fileID: 9192086293024422595}
+  hitEffect: {fileID: 3099804277931773859, guid: 53a35994995262e4c868cbee1feec62f, type: 3}
   charge: {fileID: 11400000, guid: a7f40a2fb35a4ef4bb7e012eeca45d86, type: 2}
   attackRange: 5
-  chargeMaxRange: 60
-  chargeMinRange: 30
+  chargeMaxRange: 50
+  chargeMinRange: 25
   chargeSpeed: 12
   chargeAngularSpeed: 60
   chargeAccel: 80
-  attackTurnSpeed: 20
   attackedForceY: 3
   forceScale: 3
   sphereCollider: {fileID: 980770911828256310}
@@ -3017,6 +3018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 7529927861009350043, guid: d2b4e39afa7090b4ba31d34dd4195019, type: 3}
   yPosPlus: 1
+  barWidth: 100
+  barHeigth: 5
   maxTime: 3
 --- !u!114 &-2248345523178741524
 MonoBehaviour:

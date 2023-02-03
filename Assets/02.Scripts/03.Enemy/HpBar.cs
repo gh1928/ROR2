@@ -14,9 +14,13 @@ public class HpBar : MonoBehaviour
     private float maxHp;    
     private bool isInstantiated = false;
 
+    public float barWidth = 100f;
+    public float barHeigth = 5f;
+        
+
     float timer = 0f;
     private float prevValue;
-    public float maxTime = 2f;
+    public float maxTime = 3f;
 
     bool isOn = false;
 
@@ -31,6 +35,7 @@ public class HpBar : MonoBehaviour
             hpBar = Instantiate(hpBar, canvasHpBar.transform);
             isInstantiated = true;
             hpBar.gameObject.SetActive(true);
+            hpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(barWidth, barHeigth);
         }
         canvasGroup = hpBar.GetComponent<CanvasGroup>();        
         maxHp = stats.Health;

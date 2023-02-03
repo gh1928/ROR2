@@ -106,19 +106,19 @@ AvatarMask:
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/neck_ik/neck_ik_end
     m_Weight: 0
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/Hurtbox
       (1)
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/Hurtbox
       (2)
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head
     m_Weight: 1
   - m_Path: LemurianBody (merge)/LemurianBody/ModelBase/mdlLemurian/LemurianArm/ROOT/base/stomach/chest/neck_low/neck_high/head/eyelidLower.l

@@ -15,21 +15,30 @@ public class Lemurian : EnemyBase
 
     public float attackRange = 1f;
     public SphereCollider sphereCollider;
-    public Transform muzzle;    
-    private bool isTargetOn = false;
+    public Transform muzzle;        
+    public ParticleSystem hitEffect;
     protected override void Awake()
     {
         base.Awake();        
         sphereCollider.enabled = false;
         fireTimer = fireBall.speed;
         mask = LayerMask.GetMask("Player");
-        var fb = fireBall as FireBall;
+
+        fireBall = Instantiate(fireBall, transform);
+        var fb = fireBall as RangeWeapon;
         fb.muzzle = muzzle;
+        fb.isInstanced = false;
+        hitEffect = Instantiate(hitEffect);
+        hitEffect.transform.localScale = Vector3.one * 0.1f;
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        hitEffect.Stop();
     }
     protected override void Update()
     {
-        base.Update();
-        UpdateLookPos();
+        base.Update();        
         TryFire();
     }
 
@@ -43,7 +52,7 @@ public class Lemurian : EnemyBase
             Physics.Raycast(transform.position, player.position - transform.position, fireMaxRange, mask))
         {
             fireTimer = 0f;
-            Fire();
+            chargingFire();
         }        
     }
 
@@ -58,6 +67,10 @@ public class Lemurian : EnemyBase
     }
     protected override void UpdateAttack()
     {
+        var dir = player.position - transform.position;
+        dir.Normalize();
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.8f);
+
         base.UpdateAttack();
         if (distanceToPlayer > attackRange)
         {
@@ -72,6 +85,11 @@ public class Lemurian : EnemyBase
     }
     public void Hit()
     {
+        var effectPos = player.position;
+        effectPos.y += 0.5f;
+
+        hitEffect.transform.position = effectPos;
+        hitEffect.Play();
         baseAttackDef.ExecuteAttack(gameObject, player.gameObject, Vector3.zero);       
     }
     public void AttackStart()
@@ -80,32 +98,25 @@ public class Lemurian : EnemyBase
     }
     public void AttackEnd()
     {
-        sphereCollider.enabled = false;
-        isTargetOn = false;
-    }
-    public void LookTarget()
-    {        
-        isTargetOn = true;
-    }
-    private void UpdateLookPos()
-    {
-        if (!isTargetOn)
-            return;
-     
-        transform.LookAt(player.position);
-    }
-    public void Fire()
+        sphereCollider.enabled = false;        
+    } 
+    public void chargingFire()
     {
         agent.isStopped = true;
         transform.LookAt(player.position);
         animator.SetTrigger(hashFire);
     }
-    public void FireEnd()
+    public void Fire()
     {
         fireBall.ExecuteAttack(gameObject, player.gameObject, Vector3.zero);
     }
     public void Move()
     {
         agent.isStopped = false;
+    }
+    public override void DieTriggered()
+    {
+        base.DieTriggered();
+        AttackEnd();
     }
 }

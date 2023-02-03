@@ -1,42 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Vagrant : MonoBehaviour
 {
-    public enum States
+    enum States
     {
-        None = -1,
+        None,
         Spawn,
-        Idle,
-        Patrol,
-        Chase,
-        Attack,
-        GameOver,
+        Floting,
     }
 
     public static readonly int hashSpeed = Animator.StringToHash("Speed");
     public static readonly int hashAttack = Animator.StringToHash("Attack");
 
-    protected Stats stats;
-    protected Animator animator;
-    protected bool isSpawnEnd = false;
+    private Stats stats;
+    private Animator animator;
+    private bool isSpawnEnd = false;
+    private States state = States.Spawn;
 
-    States State = States.None;
-    protected Transform player;
-    protected virtual void Awake()
+    private Transform player;
+    private Vector3 startPos;    
+    private void Awake()
     {
         stats = GetComponent<Stats>();
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
     }
-
-    protected void SpawnEnd()
+    private void SpawnEnd()
     {
         isSpawnEnd = true;
+        state = States.Floting;
+        startPos = transform.position;
     }
-    private void OnEnable()
+    private void Update()
     {
-        State = States.Spawn;
+        switch (state)
+        {      
+            case States.Spawn:
+                break;
+            case States.Floting:
+                UpdateFloating();
+                break;           
+        }
+
+    }
+    private void UpdateFloating()
+    {        
+        var pos = startPos;
+        pos.y += Mathf.Cos(Time.time);        
+        
+        transform.position = pos;
     }
 }

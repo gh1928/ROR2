@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 8f;
+    private bool isEffectInstanced = false;
+    public float speed = 30f;
     private Rigidbody rb;
-    public Attack Attack { get; set; }   
+    public float lifetime = 8f;
+    public Attack Attack { get; set; }
+    public ParticleSystem hitEffect;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Invoke("BackToPool", 5f);        
+        Invoke("BackToPool", lifetime);
     }
-    private void OnEnable()
+    public void Fire(Vector3 pos)
     {
+        transform.LookAt(pos);
         rb.velocity = transform.forward * speed;
-    }
+    } 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -28,7 +32,18 @@ public class Projectile : MonoBehaviour
                 attackable.OnAttack(gameObject, Attack, Vector3.zero);
             }            
         }
+        HitEffect();
         BackToPool();
+    }
+    private void HitEffect()
+    {        
+        if(!isEffectInstanced)
+        {
+            hitEffect = Instantiate(hitEffect);
+            isEffectInstanced = true;
+        }        
+        hitEffect.transform.position = transform.position;
+        hitEffect.Play();        
     }
     public void BackToPool()
     {

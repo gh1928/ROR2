@@ -29,7 +29,9 @@ public class DamageUI : MonoBehaviour
     private void Update()
     {
         pos.y += transSpeed * Time.deltaTime;
-        transform.position = Camera.main.WorldToScreenPoint(pos);        
+        transform.position = Camera.main.WorldToScreenPoint(pos);
+
+        textMeshPro.alpha = transform.position.z > 0f ? 1f : 0f;
     }
     public void SetUI(int damage, Vector3 hitpos)
     {

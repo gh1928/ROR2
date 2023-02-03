@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum NormalEnemyClasses
 {    
-    Bison = 0,
+    None = -1,
+    Bison,
+    Lemurian,
     TotalCount,
 }

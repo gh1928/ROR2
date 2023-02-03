@@ -5,8 +5,7 @@ using UnityEngine.Events;
 using Cinemachine;
 
 public class TargetCatcher : MonoBehaviour
-{
-    public LayerMask enemyMask;
+{    
     public UnityEvent<GameObject, Vector3> OnClickEnemy;    
     public CinemachineVirtualCamera vCam;    
 
@@ -15,8 +14,7 @@ public class TargetCatcher : MonoBehaviour
     
     Vector3 viewCenter;    
     private void Start()
-    {
-        //enemyMaskValue = enemyMask.value;
+    {        
         maxDistance = vCam.m_Lens.FarClipPlane;
         viewCenter = new Vector3(0.5f, 0.5f, 0f);
     }
@@ -28,7 +26,7 @@ public class TargetCatcher : MonoBehaviour
         {
             if(!Physics.Raycast(Camera.main.ViewportPointToRay(viewCenter), out hit, maxDistance))
                 return;
-            //Physics.Raycast(Camera.main.ViewportPointToRay(viewCenter), out hit, maxDistance, enemyMaskValue)
+            
             if (hit.collider.tag == "Enemy")
             {                
                 OnClickEnemy.Invoke(hit.collider.transform.root.gameObject, hit.point);                

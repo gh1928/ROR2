@@ -43,6 +43,8 @@ public class EnemyBase : MonoBehaviour
 
     protected float MaxHealth;
     protected States state = States.None;
+
+    public CapsuleCollider mainCollider;
     public States State
     {
         get { return state; }
@@ -99,12 +101,15 @@ public class EnemyBase : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         speed = stats.Speed;
         player = GameObject.FindWithTag("Player").transform;
+        baseAttackDef = Instantiate(baseAttackDef);
     } 
     protected virtual void OnEnable()
     {
         State = States.Spawn;
         stats.Health = MaxHealth;
+        mainCollider.enabled = true;
     }
+ 
     protected virtual void Update()
     {
         if (State != States.GameOver)
@@ -132,6 +137,10 @@ public class EnemyBase : MonoBehaviour
         }
 
         animator.SetFloat(hashSpeed, agent.velocity.magnitude);
+    }
+    public virtual void DieTriggered()
+    {
+        mainCollider.enabled = false;       
     }
     protected void OnPlayerDie()
     {

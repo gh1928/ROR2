@@ -15,4 +15,5 @@ MonoBehaviour:
   speed: 8
   criticalChance: 0
   ciriticalMultiplayer: 0
-  prefab: {fileID: 8261025156181641819, guid: 58c6ddd679fee1c4d9dccb3f243f4e1e, type: 3}
+  prefab: {fileID: 8261025156181641819, guid: f27e719257283374bbcc314fe383268b, type: 3}
+  isInstanced: 1

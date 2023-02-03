@@ -47,6 +47,7 @@ public class PlayerBase : MonoBehaviour
     float attackSpeedScale = 1f;
     protected virtual void Awake()
     {
+        attackDef = Instantiate(attackDef);
         rb = GetComponent<Rigidbody>();        
         animator = GetComponent<Animator>();             
         stats = GetComponent<Stats>();

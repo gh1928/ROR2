@@ -2440,7 +2440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivot: {fileID: 9189533509532007167}
-  cameraRotationLimit: 40
+  cameraRotationLimit: 50
   turnSpeed: 3
 --- !u!135 &8550507534173101647
 SphereCollider:

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Bison : EnemyBase
 {
+    public ParticleSystem hitEffect;
     public AttackDef charge;    
     public float attackRange  = 8f;
     public float chargeMaxRange = 40f;
@@ -18,8 +19,7 @@ public class Bison : EnemyBase
     private float normalAccel;
     public float chargeSpeed = 7f;
     public float chargeAngularSpeed = 10f;
-    public float chargeAccel = 80f;
-    public float attackTurnSpeed = 20f;
+    public float chargeAccel = 80f;    
 
     private Rigidbody playerRb;
     public float attackedForceY = 3f;
@@ -33,15 +33,20 @@ public class Bison : EnemyBase
         base.Awake();
         playerRb = player.gameObject.GetComponent<Rigidbody>();
         sphereCollider.enabled = false;
+        charge = Instantiate(charge);
         
         normalSpeed = agent.speed;        
         normalAngularSpeed = agent.angularSpeed;
         normalAccel = agent.acceleration;
+
+        hitEffect = Instantiate(hitEffect, transform);
+        hitEffect.transform.localScale = Vector3.one * 0.5f;
     }
     protected override void OnEnable()
     {
         base.OnEnable();
         chargeTimer = charge.speed;
+        hitEffect.Stop();        
     }
     protected override void Update()
     {
@@ -103,7 +108,7 @@ public class Bison : EnemyBase
     {
         var dir = player.position - transform.position;
         dir.Normalize();
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * attackTurnSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.8f);
         base.UpdateAttack();
 
         if (distanceToPlayer > attackRange &&
@@ -132,6 +137,11 @@ public class Bison : EnemyBase
         else
             baseAttackDef.ExecuteAttack(gameObject, player.gameObject, Vector3.zero);
 
+        var effectPos = player.position;
+        effectPos.y += 0.5f;
+
+        hitEffect.transform.position = effectPos;
+        hitEffect.Play();
         EndCharge();
     }
     public void AttackStart()
@@ -147,5 +157,10 @@ public class Bison : EnemyBase
     public void ToChase()
     {
         isAttacking = false;
+    }
+    public override void DieTriggered()
+    {
+        base.DieTriggered();
+        AttackEnd();
     }
 }

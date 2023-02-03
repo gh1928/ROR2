@@ -2,33 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FireBall.asset", menuName = "Attack/FireBall")]
-public class FireBall : AttackDef
+[CreateAssetMenu(fileName = "RangeWeapon.asset", menuName = "Attack/RangeWeapon")]
+public class RangeWeapon : AttackDef
 {    
     public GameObject prefab;
     public Transform muzzle { set; get; }
 
-    private bool isInstanced;
-    private GameObject bullet;
-    Vector3 instantPos;
-    private void Awake()
-    {
-        Debug.Log(1);
-        instantPos = muzzle.position;
-        bullet = Instantiate(prefab, instantPos, Quaternion.identity);
-        bullet.SetActive(false);
-    }
+    public bool isInstanced;
+    private GameObject bullet;   
+  
     public override void ExecuteAttack(GameObject attacker, GameObject defender, Vector3 pos)
     {
         if (defender == null)
             return;
 
-        bullet.SetActive(true);
-        bullet.transform.position = instantPos;
+        if (isInstanced == false)
+        {            
+            bullet = Instantiate(prefab, muzzle.position, Quaternion.identity);
+            isInstanced = true;            
+        }
+        else
+        {
+            bullet.transform.position = muzzle.position;            
+            bullet.SetActive(true);
+        }
 
         var defenderPos = defender.transform.position;
         defenderPos.y += 1f;
-        bullet.transform.LookAt(defenderPos);
+
+        var projectile = bullet.GetComponent<Projectile>();
+        projectile.Fire(defenderPos);
 
         var aStats = attacker.GetComponent<Stats>();
         var dStats = defender.GetComponent<Stats>();
