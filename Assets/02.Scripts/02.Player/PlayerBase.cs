@@ -92,7 +92,11 @@ public class PlayerBase : MonoBehaviour
     } 
     private void TryJump()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isGround)
+        //if(Input.GetKeyDown(KeyCode.Space) && isGround)
+        //{
+        //    Jump();
+        //}        
+        if (Input.GetAxisRaw("Jump") > 0 && isGround)
         {
             Jump();
         }        

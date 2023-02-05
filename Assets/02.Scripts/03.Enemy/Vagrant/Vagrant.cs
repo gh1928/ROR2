@@ -9,11 +9,12 @@ public class Vagrant : MonoBehaviour
     {
         None,
         Spawn,
-        Floting,
+        Idle,
     }
 
     public static readonly int hashSpeed = Animator.StringToHash("Speed");
     public static readonly int hashAttack = Animator.StringToHash("Attack");
+    public static readonly int hashStorm = Animator.StringToHash("Storm");
 
     private Stats stats;
     private Animator animator;
@@ -21,7 +22,7 @@ public class Vagrant : MonoBehaviour
     private States state = States.Spawn;
 
     private Transform player;
-    private Vector3 startPos;    
+    private Vector3 anchorPos;    
     private void Awake()
     {
         stats = GetComponent<Stats>();
@@ -31,8 +32,8 @@ public class Vagrant : MonoBehaviour
     private void SpawnEnd()
     {
         isSpawnEnd = true;
-        state = States.Floting;
-        startPos = transform.position;
+        state = States.Idle;
+        anchorPos = transform.position;
     }
     private void Update()
     {
@@ -40,17 +41,33 @@ public class Vagrant : MonoBehaviour
         {      
             case States.Spawn:
                 break;
-            case States.Floting:
-                UpdateFloating();
+            case States.Idle:
+                UpdateIdle();
                 break;           
         }
 
     }
-    private void UpdateFloating()
+    private void UpdateIdle()
     {        
-        var pos = startPos;
+        var pos = anchorPos;
         pos.y += Mathf.Cos(Time.time);        
         
         transform.position = pos;
+    }
+    public void EnterIdle()
+    {
+
+    }
+    public void Storm()
+    {
+
+    }
+    public void Nova()
+    {
+
+    }
+    public void Bomb()
+    {
+
     }
 }

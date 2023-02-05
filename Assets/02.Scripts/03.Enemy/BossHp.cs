@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class BossHp : MonoBehaviour
 {
-    public Slider hpBar;    
+    public Slider hpBar;
+    
     private Stats stats;
     private float maxHp;
     private CanvasGroup canvasGroup;
@@ -20,7 +21,7 @@ public class BossHp : MonoBehaviour
         canvasGroup = hpBar.GetComponent<CanvasGroup>();
     }
     private void Update()
-    {       
+    {        
         hpBar.value = stats.Health / maxHp;
     }
     private void SpawnStart()
