@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,22 @@ public class CommandoBase : PlayerBase
     private ParticleSystem rightMuzzleflash;
 
     private CommandoHitEffect hitEffect;
+    private Slide slide;
+
     private void Start()
     {
         SetMuzzleFlash();
         hitEffect = GetComponent<CommandoHitEffect>();
+        slide = GetComponent<Slide>();
     }
+    protected override void TryJump()
+    {
+        if (slide.IsSliding)
+            return; 
+
+        base.TryJump();
+    }
+
     private void SetMuzzleFlash()
     {
         leftMuzzleflash = Instantiate(muzzleflash, muzzleLeft.transform);

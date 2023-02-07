@@ -40,8 +40,6 @@ public class TargetCatcher : MonoBehaviour
             if(!Physics.Raycast(Camera.main.ViewportPointToRay(aimResult), out hit, maxDistance))
                 return;
 
-            Debug.Log(recoil.CurrRecoil().x);
-
             if (hit.collider.tag == "Enemy")
             {                
                 OnClickEnemy.Invoke(hit.collider.transform.root.gameObject, hit.point);                

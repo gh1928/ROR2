@@ -11,7 +11,7 @@ public class UseCustomGravity : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
-        globalGravity = GameManager.Instance.globalGravity;
+        globalGravity = GameInfo.Instance.globalGravity;
     }
     void FixedUpdate()
     {

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Recoil : MonoBehaviour
 {    
+    public PlayerBase player;
+
     public float recoilLimit = 1f;
     public float timeScaler = 2f;
 
@@ -12,33 +14,42 @@ public class Recoil : MonoBehaviour
     public float crossHairNormalSize = 50f;
     public float crossHairRecoilSize = 60f;
     public RectTransform crossHair;
-    
+
     void Update()
     {
+        PlusRecoil();
+        MinusRecoil();
         CurrRecoil();
         UpdateCrossHair();
     }
-    public Vector3 CurrRecoil()
-    {        
+    private void PlusRecoil()
+    {
+        if (player.IsSprint)
+            return;
 
         if (Input.GetMouseButton(0))
         {
             recoil += Time.deltaTime / timeScaler;
-            if(recoil > recoilLimit)
+            if (recoil > recoilLimit)
             {
                 recoil = recoilLimit;
             }
         }
-        else
+    }
+    private void MinusRecoil()
+    {
+        if (!Input.GetMouseButton(0) || player.IsSprint)
         {
-            recoil -= Time.deltaTime  * 2f / timeScaler;
-            if(recoil < 0f)
+            recoil -= Time.deltaTime * 2f / timeScaler;
+            if (recoil < 0f)
             {
                 recoil = 0f;
             }
         }
-
-        return Random.onUnitSphere * recoil * 0.01f;
+    }
+    public Vector3 CurrRecoil()
+    {        
+        return recoil * 0.01f * Random.onUnitSphere; 
     }
     private void UpdateCrossHair()
     {

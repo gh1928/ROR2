@@ -2813,6 +2813,8 @@ GameObject:
   - component: {fileID: 8816118715218353876}
   - component: {fileID: -821626907081552478}
   - component: {fileID: -2248345523178741524}
+  - component: {fileID: 8337088271739527030}
+  - component: {fileID: 1066147456981669156}
   m_Layer: 10
   m_Name: 01.Bison
   m_TagString: Enemy
@@ -3034,6 +3036,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyClass: 0
+--- !u!114 &8337088271739527030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522395892329244480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8226a5190131e024c9a4ea8dc582b3af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1066147456981669156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522395892329244480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd2adefe63a72d44ae6e4bcdf92c55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: 6
 --- !u!1 &8583081571837839978
 GameObject:
   m_ObjectHideFlags: 0

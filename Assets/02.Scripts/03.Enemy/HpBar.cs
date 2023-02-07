@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,25 +12,27 @@ public class HpBar : MonoBehaviour
     public float yPosPlus = 1f;
     Vector3 pos;
     private Stats stats;
-    private float maxHp;    
+    private EnemyBase enemyBase;
+    
     private bool isInstantiated = false;
 
     public float barWidth = 100f;
     public float barHeigth = 5f;
         
-
     float timer = 0f;
     private float prevValue;
     public float maxTime = 3f;
 
     bool isOn = false;
 
+    private int currLevel;
+
     // Start is called before the first frame update
     void Start()
     {
         canvasHpBar = HpBarUI.Instance.gameObject;
         stats = GetComponent<Stats>();
-        
+        enemyBase = GetComponent<EnemyBase>();
         if(!isInstantiated)
         {
             hpBar = Instantiate(hpBar, canvasHpBar.transform);
@@ -38,26 +41,13 @@ public class HpBar : MonoBehaviour
             hpBar.GetComponent<RectTransform>().sizeDelta = new Vector2(barWidth, barHeigth);
         }
         canvasGroup = hpBar.GetComponent<CanvasGroup>();        
-        maxHp = stats.Health;
         prevValue = stats.Health;
     }    
-
-    // Update is called once per frame
     void Update()
     {
-        pos = transform.position;
-        pos.y += yPosPlus;
-        hpBar.transform.position = Camera.main.WorldToScreenPoint(pos);
-
-        canvasGroup.alpha = isOn ? 1f : 0f;
-
-        if (hpBar.transform.position.z < 0f)
-            canvasGroup.alpha = 0f;
-
-        hpBar.value = stats.Health / maxHp;
-
+        UpdateBar();
         CheckDamaged();
-        CheckTimer();
+        CheckTimer();        
     }
     private void OnEnable()
     {
@@ -68,7 +58,24 @@ public class HpBar : MonoBehaviour
         }
         isOn = false;        
     }
+    private void UpdateBar()
+    {
+        pos = transform.position;
+        pos.y += yPosPlus;
+        hpBar.transform.position = Camera.main.WorldToScreenPoint(pos);
+
+        canvasGroup.alpha = isOn ? 1f : 0f;
+
+        if (hpBar.transform.position.z < 0f)
+            canvasGroup.alpha = 0f;
+
+        hpBar.value = stats.Health / enemyBase.MaxHp;        
+    }
     public void DieTriggered()
+    {
+        Invoke("BarStop", 1f);        
+    }
+    private void BarStop()
     {
         hpBar.gameObject.SetActive(false);
         isOn = false;
@@ -76,9 +83,9 @@ public class HpBar : MonoBehaviour
     private void CheckDamaged()
     {
         if (stats.Health < prevValue)
-        {
+        {            
             isOn = true;
-            timer = 0f;            
+            timer = 0f; 
         }
         prevValue = stats.Health;        
     }
@@ -89,5 +96,5 @@ public class HpBar : MonoBehaviour
         {
             isOn = false;            
         }            
-    }
+    } 
 }

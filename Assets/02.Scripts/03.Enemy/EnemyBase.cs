@@ -41,7 +41,10 @@ public class EnemyBase : MonoBehaviour
     protected float distanceToDest;
     protected Vector3 dest;
 
-    protected float MaxHealth;
+    private float baseHp;
+    private float baseDamage;
+    public float MaxHp { get; private set; }
+    public float Damage { get; private set; }
     protected States state = States.None;
 
     public CapsuleCollider mainCollider;
@@ -95,7 +98,8 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Awake()
     {
         stats = GetComponent<Stats>();
-        MaxHealth = stats.Health;
+        baseHp = stats.Health;
+        baseDamage = stats.Damage;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
@@ -105,18 +109,22 @@ public class EnemyBase : MonoBehaviour
     } 
     protected virtual void OnEnable()
     {
-        State = States.Spawn;
-        stats.Health = MaxHealth;
+        State = States.Spawn;        
         mainCollider.enabled = true;
+        UpdateStats();
+        stats.Health = MaxHp;
     }
  
     protected virtual void Update()
     {
-        if (State != States.GameOver)
-        {
-            distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            distanceToDest = Vector3.Distance(transform.position, dest);
-        }
+        UpdateDistances();
+        UpdateStates();       
+        animator.SetFloat(hashSpeed, agent.velocity.magnitude);
+        UpdateStats();
+    }
+
+    private void UpdateStates()
+    {
         switch (state)
         {
             case States.Spawn:
@@ -135,8 +143,24 @@ public class EnemyBase : MonoBehaviour
                 UpdateAttack();
                 break;
         }
+    }
 
-        animator.SetFloat(hashSpeed, agent.velocity.magnitude);
+    private void UpdateDistances()
+    {
+        if (State == States.GameOver)
+            return;
+
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        distanceToDest = Vector3.Distance(transform.position, dest);
+    }
+    private void UpdateStats()
+    {
+        if (GameInfo.Instance == null)
+            return;
+
+        var lvl = GameInfo.Instance.GameLevel;
+        MaxHp = baseHp + stats.HealthInc * lvl;
+        stats.Damage = baseDamage + stats.DamageInc * lvl;
     }
     public virtual void DieTriggered()
     {

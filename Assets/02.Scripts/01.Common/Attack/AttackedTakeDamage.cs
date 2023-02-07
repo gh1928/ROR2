@@ -29,8 +29,8 @@ public class AttackedTakeDamage : MonoBehaviour, IAttackable
 
         if (stats == null)
             return;
-        stats.Health -= attack.Damage;                
-
+        stats.Health -= attack.Damage;
+        
         if (stats.Health <= 0)
         {
             isAlive = false;

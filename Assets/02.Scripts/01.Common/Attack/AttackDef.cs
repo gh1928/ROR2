@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Attack.asset", menuName = "Attack/BaseAttack")]
 public class AttackDef : ScriptableObject
 {
-    public float speed;        
+    public float speed;
     public float criticalChance;
     public float ciriticalMultiplayer;
     public virtual void ExecuteAttack(GameObject attacker, GameObject defender, Vector3 hitpos)

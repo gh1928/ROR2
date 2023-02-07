@@ -5,17 +5,21 @@ using Cinemachine;
 using System;
 public class PlayerBase : MonoBehaviour
 {
+    public static PlayerBase Instance { get; private set; }
+
     public GameObject crosshair;
     public GameObject runarrow;
 
     Rigidbody rb;
 
-    Stats stats;
+    protected Stats stats;
+    public Stats Stats { get { return stats; } }
     private Vector2 direction;
-    private float speed;
+    private float normalSpeed;    
+    public float NormalSpeed { get { return normalSpeed; } }
     public float turnSpeed = 15f;
 
-    Animator animator;
+    protected Animator animator;
     public static readonly int hashHorizontal = Animator.StringToHash("Horizontal");
     public static readonly int hashVertical = Animator.StringToHash("Vertical");
     public static readonly int hashIsSprint = Animator.StringToHash("IsSprint");
@@ -32,6 +36,7 @@ public class PlayerBase : MonoBehaviour
 
     private bool isSprint = false;
     public bool IsSprint { get { return isSprint; } }
+    public float SprintScale { get; private set; } = 1.5f;
 
     public CinemachineVirtualCamera vCam;
     public float normalFov = 50f;
@@ -47,22 +52,24 @@ public class PlayerBase : MonoBehaviour
     float attackSpeedScale = 1f;
     protected virtual void Awake()
     {
+        Instance = this;
+
         attackDef = Instantiate(attackDef);
         rb = GetComponent<Rigidbody>();        
         animator = GetComponent<Animator>();             
         stats = GetComponent<Stats>();
-        speed = stats.Speed;
+        normalSpeed = stats.Speed;
         baseAttackSpeed = attackDef.speed;
         animator.SetFloat(hashAttackSpeed, baseAttackSpeed * attackSpeedScale);
     }
-    private void Update()
+    protected virtual void Update()
     {
         UpdateAnimation();
         UpdateRotation();        
         TryJump();
         TrySprint();
         IsFalling();
-        TryAttack();
+        TryAttack();        
     }
     private void FixedUpdate()
     {
@@ -81,8 +88,9 @@ public class PlayerBase : MonoBehaviour
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
 
-        Vector3 velocity = (transform.right * direction.x + transform.forward * direction.y).normalized * speed;  
-        rb.MovePosition(transform.position + velocity * Time.fixedDeltaTime);
+        Vector3 velocity = (transform.right * direction.x + transform.forward * direction.y).normalized * stats.Speed;        
+        velocity.y = rb.velocity.y;
+        rb.velocity = velocity;
     }
     private void UpdateRotation()
     {        
@@ -90,16 +98,16 @@ public class PlayerBase : MonoBehaviour
         characterRotationY.y = yRotation * turnSpeed;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(characterRotationY));
     } 
-    private void TryJump()
+    protected virtual void TryJump()
     {
-        //if(Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        {
+            Jump();
+        }
+        //if (Input.GetAxisRaw("Jump") > 0 && isGround)
         //{
         //    Jump();
         //}        
-        if (Input.GetAxisRaw("Jump") > 0 && isGround)
-        {
-            Jump();
-        }        
     }
     private void Jump()
     {
@@ -121,7 +129,7 @@ public class PlayerBase : MonoBehaviour
             StopSprint();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             if(isSprint)
             {
@@ -134,14 +142,14 @@ public class PlayerBase : MonoBehaviour
     private void Sprint()
     {
         animator.SetBool(hashIsSprint, isSprint = true);
-        speed *= 1.5f;
+        stats.Speed *= SprintScale;
 
         ChangeSprintState();
     }
     public void StopSprint()
     {
         animator.SetBool(hashIsSprint, isSprint = false);
-        speed = stats.Speed;
+        stats.Speed = normalSpeed;
 
         ChangeSprintState();
     }
