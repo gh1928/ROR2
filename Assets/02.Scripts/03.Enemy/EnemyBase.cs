@@ -87,7 +87,8 @@ public class EnemyBase : MonoBehaviour
                 case States.Attack:
                     timer = baseAttackDef.speed;
                     agent.velocity = Vector3.zero;
-                    agent.isStopped = true;
+                    if(gameObject.activeSelf)
+                        agent.isStopped = true;
                     break;
                 case States.GameOver:
                     agent.isStopped = true;

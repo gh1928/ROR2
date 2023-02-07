@@ -797,6 +797,8 @@ MonoBehaviour:
   DamageInc: 1.3
   Speed: 0
   Armor: 15
+  CriticalChance: 0
+  CriticalMultiplayer: 0
 --- !u!114 &7954805218696997311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,6 +873,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ab22adc8ba0f94082f52335e977121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posTimer: 0
+  bomb: {fileID: 0}
+  muzzle: {fileID: 4298519230580574305}
+  bombCoolDown: 6
 --- !u!1 &4441944126330317838
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,6 @@ public class Slide : SkillBase
     public float speedScale = 3f;    
     private Rigidbody rb;
     public bool IsSliding { get; private set; } = false;
-
-    private bool slidingStart = false;
-    private bool slidingEnd = false;
     protected override void Start()
     {
         base.Start();
@@ -47,7 +44,7 @@ public class Slide : SkillBase
         stats.Speed = normalSpeed;
         stats.Speed *= speedScale;
         IsSliding = true;
-        slidingStart = true;
+    
     }
     public void SlideEnd()
     {
@@ -55,7 +52,7 @@ public class Slide : SkillBase
         stats.Speed = normalSpeed;
         IsSliding = false;
 
-        slidingEnd = true;
+    
     }
     //private void ReduceCollider()
     //{

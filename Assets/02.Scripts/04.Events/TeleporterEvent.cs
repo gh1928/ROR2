@@ -42,7 +42,7 @@ public class TeleporterEvent : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         isPlayerInRange = distanceToPlayer < detectionRange;
 
-        textMesh.SetActive(isPlayerInRange);
+        textMesh.SetActive(isPlayerInRange && !isStarted);
         TryStartEvent();
     }
     private void TryStartEvent()

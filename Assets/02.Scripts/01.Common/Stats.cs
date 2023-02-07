@@ -13,5 +13,8 @@ public class Stats : MonoBehaviour
     public float DamageInc;
 
     public float Speed;
-    public float Armor;    
+    public float Armor;
+
+    public float CriticalChance;
+    public float CriticalMultiplayer;
 }

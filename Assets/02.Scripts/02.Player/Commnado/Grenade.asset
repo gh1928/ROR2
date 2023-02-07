@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d12ecc6e6674ab4096e03a76f3301d7, type: 3}
-  m_Name: FireBall
+  m_Script: {fileID: 11500000, guid: 7e61740e886a909448a8b782deacdf10, type: 3}
+  m_Name: Grenade
   m_EditorClassIdentifier: 
-  speed: 8
-  prefab: {fileID: 8261025156181641819, guid: f27e719257283374bbcc314fe383268b, type: 3}
-  isInstanced: 0
+  speed: 0
+  criticalChance: 0.1
+  ciriticalMultiplayer: 2
+  radius: 7

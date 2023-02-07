@@ -9,11 +9,12 @@ public class Grenade : SkillBase
     
     public Transform rightHand;
     public float throwStr = 5f;
+    
     protected override void Start()
     {
         base.Start();        
         grenade = Instantiate(grenade);
-        grenade.SetActive(false);
+        grenade.SetActive(false);        
     }   
     protected override void Excute()
     {

@@ -71,10 +71,10 @@ public class PhaseBullet : MonoBehaviour
     {
         float damage = attacker.Damage * 2 * 100 / (100 + defender.Armor);
 
-        var isCritical = Random.value < PlayerBase.Instance.attackDef.criticalChance;
+        var isCritical = Random.value < attacker.CriticalChance;
         if (isCritical)
         {
-            damage *= PlayerBase.Instance.attackDef.ciriticalMultiplayer;
+            damage *= attacker.CriticalMultiplayer;
         }
         return new Attack((int)damage, isCritical);
     }

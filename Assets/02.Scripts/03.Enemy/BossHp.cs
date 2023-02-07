@@ -3,26 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.UIElements.ToolbarMenu;
 
 public class BossHp : MonoBehaviour
 {
     public Slider hpBar;
     
-    private Stats stats;
-    private float maxHp;
+    private Stats stats;    
     private CanvasGroup canvasGroup;
     private Coroutine coroutine;
+    private Vagrant vagrant;
 
     public float eventTime = 0.1f;
     private void Awake()
     {        
         stats = GetComponent<Stats>();
-        maxHp = stats.Health;
+        vagrant = GetComponent<Vagrant>();        
         canvasGroup = hpBar.GetComponent<CanvasGroup>();
     }
     private void Update()
     {        
-        hpBar.value = stats.Health / maxHp;
+        hpBar.value = stats.Health / vagrant.MaxHp;
     }
     private void SpawnStart()
     {

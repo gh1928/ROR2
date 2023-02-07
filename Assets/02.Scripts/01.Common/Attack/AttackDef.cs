@@ -6,8 +6,7 @@ using UnityEngine;
 public class AttackDef : ScriptableObject
 {
     public float speed;
-    public float criticalChance;
-    public float ciriticalMultiplayer;
+    public float DamageScale { get; set; } = 1f;
     public virtual void ExecuteAttack(GameObject attacker, GameObject defender, Vector3 hitpos)
     {
         var aStats = attacker.GetComponent<Stats>();
@@ -20,14 +19,14 @@ public class AttackDef : ScriptableObject
             attackable.OnAttack(attacker, attack, hitpos);
         }
     }
-    public Attack CreatAttack(Stats attacker, Stats defender)
+    protected Attack CreatAttack(Stats attacker, Stats defender)
     {
-        float damage = attacker.Damage * 100 / (100 + defender.Armor);        
+        float damage = attacker.Damage * DamageScale * 100 / (100 + defender.Armor);        
 
-        var isCritical = Random.value < criticalChance;
+        var isCritical = Random.value < attacker.CriticalChance;
         if (isCritical)
         {
-            damage *= ciriticalMultiplayer;
+            damage *= attacker.CriticalMultiplayer;
         }
  
         return new Attack((int)damage, isCritical);

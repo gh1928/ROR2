@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d12ecc6e6674ab4096e03a76f3301d7, type: 3}
-  m_Name: FireBall
+  m_Name: VagrantBomb
   m_EditorClassIdentifier: 
-  speed: 8
-  prefab: {fileID: 8261025156181641819, guid: f27e719257283374bbcc314fe383268b, type: 3}
+  speed: 6
+  prefab: {fileID: 6888749083954005732, guid: 8b0fed54884ac9f4f8673e4767c60645, type: 3}
   isInstanced: 0
