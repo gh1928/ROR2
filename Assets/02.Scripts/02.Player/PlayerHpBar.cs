@@ -28,7 +28,7 @@ public class PlayerHpBar : MonoBehaviour
 
     private void UpdateHpText()
     {
-        hpText.text = $"{stats.Health}/{scailedStats.MaxHealth}";
+        hpText.text = $"{stats.Health:00.}/{scailedStats.MaxHealth:00.}";
     }
 
     private void UpdateHpSlider()

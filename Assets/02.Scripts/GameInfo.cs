@@ -30,7 +30,7 @@ public class GameInfo : MonoBehaviour
     }
     private void UpdateTimerTex()
     {        
-        timerTex.text = $"{(int)(timer / 60):D2}:{(int)timer:D2}";
+        timerTex.text = $"{(int)(timer / 60):00.}:{(int)timer:00.}";
     }
     private void UpdateLevelTex()
     {

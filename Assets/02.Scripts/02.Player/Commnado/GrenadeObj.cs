@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-using Cinemachine.Editor;
-using static UnityEngine.ParticleSystem;
 
 public class GrenadeObj : MonoBehaviour
 {
