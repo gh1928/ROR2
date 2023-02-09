@@ -222,5 +222,6 @@ public class PlayerBase : MonoBehaviour
     {  
         attackTarget = go;
         this.hitpos = hitpos;
+        
     }
 }
