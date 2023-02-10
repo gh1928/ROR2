@@ -101,7 +101,7 @@ MonoBehaviour:
   velocity: 30
   maxSpread: 0.1
   lifeTime: 3
-  particle: {fileID: 8646659496853717804, guid: 6c75fd868ddfa4741ac74cb4eff55e98, type: 3}
+  particle: {fileID: 198149439886552118, guid: 266bfc3979b19d3478e92304dab844d6, type: 3}
 --- !u!136 &3798067503095776047
 CapsuleCollider:
   m_ObjectHideFlags: 0

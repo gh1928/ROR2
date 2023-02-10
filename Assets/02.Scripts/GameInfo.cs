@@ -29,8 +29,8 @@ public class GameInfo : MonoBehaviour
         UpdateGameLevel();
     }
     private void UpdateTimerTex()
-    {        
-        timerTex.text = $"{(int)(timer / 60):00.}:{(int)timer:00.}";
+    {
+        timerTex.text = $"{(int)(timer / 60):D2}:{(int)(timer % 60):D2}";
     }
     private void UpdateLevelTex()
     {

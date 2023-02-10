@@ -5,6 +5,9 @@ using Cinemachine;
 using System;
 public class PlayerBase : MonoBehaviour
 {
+    public Joystick moveStick;
+    //public Joystick shotStick;
+
     public static PlayerBase Instance { get; private set; }
 
     public GameObject crosshair;
@@ -15,7 +18,7 @@ public class PlayerBase : MonoBehaviour
     protected Stats stats;
     public Stats Stats { get { return stats; } }
     private Vector2 direction;
-    private float normalSpeed;    
+    private float normalSpeed;
     public float NormalSpeed { get { return normalSpeed; } }
     public float turnSpeed = 15f;
 
@@ -29,7 +32,8 @@ public class PlayerBase : MonoBehaviour
     public static readonly int hashIsAttack = Animator.StringToHash("IsAttack");
     public static readonly int hashAttackSpeed = Animator.StringToHash("AttackSpeed");
     private Vector2 inputAxis;
-    Vector3 characterRotationY = Vector3.zero;
+    private Vector3 characterRotationY = Vector3.zero;
+    private bool isRotating = false;
 
     public float jumpForce = 10f;
     private bool isGround = true;
@@ -48,15 +52,15 @@ public class PlayerBase : MonoBehaviour
     protected GameObject attackTarget;
     protected Vector3 hitpos;
     public GameObject AttackTarget { get { return attackTarget; } }
-    float baseAttackSpeed;
-    float attackSpeedScale = 1f;
+    private float baseAttackSpeed;
+    private float attackSpeedScale = 1f;
     protected virtual void Awake()
     {
         Instance = this;
 
         attackDef = Instantiate(attackDef);
-        rb = GetComponent<Rigidbody>();        
-        animator = GetComponent<Animator>();             
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         stats = GetComponent<Stats>();
         normalSpeed = stats.Speed;
         baseAttackSpeed = attackDef.speed;
@@ -65,36 +69,53 @@ public class PlayerBase : MonoBehaviour
     protected virtual void Update()
     {
         UpdateAnimation();
-        UpdateRotation();        
+        UpdateRotation();
         TryJump();
         TrySprint();
         IsFalling();
-        TryAttack();        
+        TryAttack();
     }
     private void FixedUpdate()
     {
-        UpdateMove();        
+        UpdateMove();
     }
     private void UpdateAnimation()
     {
-        inputAxis.x = Input.GetAxis("Horizontal");
-        inputAxis.y = Input.GetAxis("Vertical");
+        //inputAxis.x = Input.GetAxis("Horizontal");
+        //inputAxis.y = Input.GetAxis("Vertical");
+
+        inputAxis.x = moveStick.Horizontal;
+        inputAxis.y = moveStick.Vertical;
 
         animator.SetFloat(hashHorizontal, inputAxis.x);
         animator.SetFloat(hashVertical, inputAxis.y);
     }
     private void UpdateMove()
-    {   
-        direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
+    {
+        //direction.x = Input.GetAxis("Horizontal");
+        //direction.y = Input.GetAxis("Vertical");
 
-        Vector3 velocity = (transform.right * direction.x + transform.forward * direction.y).normalized * stats.Speed;        
+        direction.x = moveStick.Horizontal;
+        direction.y = moveStick.Vertical;
+
+        Vector3 velocity = (transform.right * direction.x + transform.forward * direction.y).normalized * stats.Speed;
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
     }
+    private void CheckRotating()
+    {
+        var pos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        
+    }
     private void UpdateRotation()
-    {        
-        float yRotation = Input.GetAxis("Mouse X");
+    {
+        if (Input.touchCount <= 0)
+            return;
+
+        float yRotation = Input.touches[0].deltaPosition.x;
+
+        //float yRotation = Input.GetAxis("Mouse X");
+
         characterRotationY.y = yRotation * turnSpeed;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(characterRotationY));
     } 

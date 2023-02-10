@@ -24,7 +24,13 @@ public class CameraController : MonoBehaviour
     }
     private void CameraXRotation()
     {
-        float xRotation = Input.GetAxisRaw("Mouse Y");
+        if (Input.touchCount <= 0)
+            return;
+
+        float xRotation = Input.touches[0].deltaPosition.y;
+        
+        //float xRotation = Input.GetAxis("Mouse Y");        
+
         float cameraRotationX = xRotation * turnSpeed;
         currentCameraRotationX -= cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);

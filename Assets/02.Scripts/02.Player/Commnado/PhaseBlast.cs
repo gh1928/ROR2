@@ -9,8 +9,7 @@ public class PhaseBlast : SkillBase
     public Transform rightMuzzle;
     public ParticleSystem particle;
     private ParticleSystem leftParticle;
-    private ParticleSystem rightParticle;
-    public AttackDef attackDef;
+    private ParticleSystem rightParticle;    
     
     public PhaseBullet prefab;
     private PhaseBullet[] instances;
