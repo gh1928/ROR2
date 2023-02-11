@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class CommandoBase : PlayerBase
 {
-    public GameObject muzzleLeft;
-    public GameObject muzzleRight;
+    public TargetCatcher catcher;
+
+    public Transform muzzleLeft;
+    public Transform muzzleRight;
     public ParticleSystem muzzleflash;
 
     private ParticleSystem leftMuzzleflash;
@@ -31,19 +33,30 @@ public class CommandoBase : PlayerBase
 
     private void SetMuzzleFlash()
     {
-        leftMuzzleflash = Instantiate(muzzleflash, muzzleLeft.transform);
-        rightMuzzleflash = Instantiate(muzzleflash, muzzleRight.transform);        
+        leftMuzzleflash = Instantiate(muzzleflash, muzzleLeft);
+        rightMuzzleflash = Instantiate(muzzleflash, muzzleRight);        
     }
     public override void Hit()
-    {    
-        base.Hit();
+    {
         leftMuzzleflash.Play();
-        hitEffect.MakeHitEffect(gameObject, hitpos);
+
+        CommonHit(muzzleLeft);
     }
     public void HitRight()
     {
-        base.Hit();
         rightMuzzleflash.Play();
-        hitEffect.MakeHitEffect(gameObject, hitpos);
+
+        CommonHit(muzzleRight); 
     } 
+    private void CommonHit(Transform muzzle)
+    {
+        catcher.GetTarget();
+
+        var dir = hitpos - muzzle.position;
+        if (Vector3.Dot(muzzle.forward, dir) < 0)
+            return;
+
+        hitEffect.MakeHitEffect(gameObject, hitpos);
+        base.Hit();
+    }
 }

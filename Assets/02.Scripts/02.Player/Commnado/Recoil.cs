@@ -9,6 +9,7 @@ public class Recoil : MonoBehaviour
 
     public float recoilLimit = 1f;
     public float timeScaler = 2f;
+    public float recoilScaler = 0.1f;
 
     private float recoil = 0f;
     public float crossHairNormalSize = 50f;
@@ -49,7 +50,7 @@ public class Recoil : MonoBehaviour
     }
     public Vector3 CurrRecoil()
     {        
-        return recoil * 0.01f * Random.onUnitSphere; 
+        return recoil * recoilScaler * Random.onUnitSphere; 
     }
     private void UpdateCrossHair()
     {

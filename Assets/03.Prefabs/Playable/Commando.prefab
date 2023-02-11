@@ -2496,6 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf51496e30166745be52b45e5b3d468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveStick: {fileID: 0}
   crosshair: {fileID: 0}
   runarrow: {fileID: 0}
   turnSpeed: 5
@@ -2505,8 +2506,8 @@ MonoBehaviour:
   runFov: 60
   fovChangeSpeed: 5
   attackDef: {fileID: 11400000, guid: e314e06c03805b548b12ed12351fa31d, type: 2}
-  muzzleLeft: {fileID: 6827448272102105274}
-  muzzleRight: {fileID: 8563263031376652662}
+  muzzleLeft: {fileID: 228895403412117639}
+  muzzleRight: {fileID: 1699703679064165018}
   muzzleflash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
 --- !u!114 &1864337772
 MonoBehaviour:
@@ -2649,7 +2650,6 @@ MonoBehaviour:
   leftMuzzle: {fileID: 228895403412117639}
   rightMuzzle: {fileID: 1699703679064165018}
   particle: {fileID: 198234346748616026, guid: 8dacb6ca50956ab49a3477fc1a22c786, type: 3}
-  attackDef: {fileID: 11400000, guid: e314e06c03805b548b12ed12351fa31d, type: 2}
   prefab: {fileID: 8232735639586481654, guid: 8b28327ccc4f74f4cb96435a46558365, type: 3}
 --- !u!114 &6902467295395733367
 MonoBehaviour:

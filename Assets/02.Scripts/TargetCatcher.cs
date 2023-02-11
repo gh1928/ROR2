@@ -8,46 +8,46 @@ public class TargetCatcher : MonoBehaviour
 {    
     public UnityEvent<GameObject, Vector3> OnClickEnemy;    
     public CinemachineVirtualCamera vCam;
+
+    public Transform aimStart;
+    public Transform aimDir;
     private Recoil recoil;
 
     //int enemyMaskValue;
     float maxDistance;
     
-    Vector3 viewCenter;
-    Vector3 aimResult;
+    Vector3 recoilDir;
     private void Start()
     {        
-        maxDistance = vCam.m_Lens.FarClipPlane;
-        viewCenter = new Vector3(0.5f, 0.5f, 0f);
-        recoil = GetComponent<Recoil>();
-        aimResult = viewCenter;
+        maxDistance = vCam.m_Lens.FarClipPlane;        
+        recoil = GetComponent<Recoil>();        
     }
     private void UpdateRecoil()
     {
-        if(recoil== null) 
+        if(recoil == null) 
             return;
 
-        aimResult = viewCenter + recoil.CurrRecoil();
-        
+        recoilDir = aimDir.position + recoil.CurrRecoil();        
     }
     void Update()
-    {  
-        RaycastHit hit;
+    {          
         UpdateRecoil();
+    }
 
-        if (Input.GetMouseButton(0))
+    public void GetTarget()
+    {
+        RaycastHit hit;        
+
+        if (!Physics.Raycast(aimStart.position, recoilDir - aimStart.position, out hit, maxDistance))
+            return;
+
+        if (hit.collider.tag == "Enemy")
+        {            
+            OnClickEnemy.Invoke(hit.transform.root.gameObject, hit.point);
+        }
+        else
         {
-            if(!Physics.Raycast(Camera.main.ViewportPointToRay(aimResult), out hit, maxDistance))
-                return;
-
-            if (hit.collider.tag == "Enemy")
-            {                
-                OnClickEnemy.Invoke(hit.collider.transform.root.gameObject, hit.point);                
-            }
-            else
-            {
-                OnClickEnemy.Invoke(null, hit.point);
-            }            
-        }   
+            OnClickEnemy.Invoke(null, hit.point);
+        }
     }
 }

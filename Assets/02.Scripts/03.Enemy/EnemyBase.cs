@@ -24,6 +24,7 @@ public class EnemyBase : MonoBehaviour
     public AttackDef baseAttackDef;
     public float aggroRange = 200f;
     protected float speed;
+    protected float prevHealth;
     
     protected bool isSpawnEnd = false;
 
@@ -112,7 +113,7 @@ public class EnemyBase : MonoBehaviour
     {
         State = States.Spawn;        
         mainCollider.enabled = true;
-        UpdateStats();
+        UpdateEnemyStats();
         stats.Health = MaxHp;
     }
  
@@ -121,7 +122,7 @@ public class EnemyBase : MonoBehaviour
         UpdateDistances();
         UpdateStates();       
         animator.SetFloat(hashSpeed, agent.velocity.magnitude);
-        UpdateStats();
+        UpdateEnemyStats();
     }
 
     private void UpdateStates()
@@ -154,7 +155,7 @@ public class EnemyBase : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         distanceToDest = Vector3.Distance(transform.position, dest);
     }
-    private void UpdateStats()
+    private void UpdateEnemyStats()
     {
         if (GameInfo.Instance == null)
             return;
@@ -231,6 +232,13 @@ public class EnemyBase : MonoBehaviour
     protected void UpdateIdle()
     {
         timer += Time.deltaTime;
+
+        if (stats.Health < prevHealth)
+        {
+            State = States.Chase;
+            return;
+        }
+        prevHealth = stats.Health;
 
         if (distanceToPlayer < aggroRange)
         {
