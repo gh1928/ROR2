@@ -5,9 +5,7 @@ using Cinemachine;
 using System;
 public class PlayerBase : MonoBehaviour
 {
-    public Joystick moveStick;
-    //public Joystick shotStick;
-
+    public Joystick moveStick;    
     public static PlayerBase Instance { get; private set; }
 
     public GameObject crosshair;
@@ -32,8 +30,7 @@ public class PlayerBase : MonoBehaviour
     public static readonly int hashIsAttack = Animator.StringToHash("IsAttack");
     public static readonly int hashAttackSpeed = Animator.StringToHash("AttackSpeed");
     private Vector2 inputAxis;
-    private Vector3 characterRotationY = Vector3.zero;
-    private bool isRotating = false;
+    private Vector3 characterRotationY = Vector3.zero;    
 
     public float jumpForce = 10f;
     private bool isGround = true;
@@ -54,6 +51,7 @@ public class PlayerBase : MonoBehaviour
     public GameObject AttackTarget { get { return attackTarget; } }
     private float baseAttackSpeed;
     private float attackSpeedScale = 1f;
+    
     protected virtual void Awake()
     {
         Instance = this;
@@ -68,12 +66,12 @@ public class PlayerBase : MonoBehaviour
     }
     protected virtual void Update()
     {
-        UpdateAnimation();
+        UpdateAnimation();        
         UpdateRotation();
         TryJump();
         TrySprint();
         IsFalling();
-        TryAttack();
+        TryAttack();    
     }
     private void FixedUpdate()
     {
@@ -81,43 +79,34 @@ public class PlayerBase : MonoBehaviour
     }
     private void UpdateAnimation()
     {
-#if UNITY_EDITOR
-        inputAxis.x = Input.GetAxis("Horizontal");
-        inputAxis.y = Input.GetAxis("Vertical");
-#elif UNITY_ANDROID
         inputAxis.x = moveStick.Horizontal;
         inputAxis.y = moveStick.Vertical;
-#endif
+
         animator.SetFloat(hashHorizontal, inputAxis.x);
         animator.SetFloat(hashVertical, inputAxis.y);
     }
     private void UpdateMove()
     {
-#if UNITY_EDITOR
-        direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
-#elif UNITY_ANDROID
         direction.x = moveStick.Horizontal;
         direction.y = moveStick.Vertical;
-#endif
+
         Vector3 velocity = (transform.right * direction.x + transform.forward * direction.y).normalized * stats.Speed;
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
     }
  
     private void UpdateRotation()
-    {
-#if UNITY_EDITOR
-
-        float yRotation = Input.GetAxis("Mouse X");        
-
-#elif UNITY_ANDROID
-
-        if (Input.touchCount <= 0)
+    {        
+        //float yRotation = Input.GetAxis("Mouse X");
+        if (RotationInput.ID == -1)
             return;
 
-        float yRotation = Input.touches[0].deltaPosition.x * Screen.dpi;
-#endif
+        var index = RotationInput.FingerIdMatching();
+        if (index == -1)
+            return;
+
+        float yRotation = Input.touches[index].deltaPosition.x / Screen.width * 70f;
+
         characterRotationY.y = yRotation * turnSpeed;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(characterRotationY));
     } 
@@ -126,11 +115,7 @@ public class PlayerBase : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             Jump();
-        }
-        //if (Input.GetAxisRaw("Jump") > 0 && isGround)
-        //{
-        //    Jump();
-        //}        
+        }        
     }
     private void Jump()
     {
@@ -244,7 +229,6 @@ public class PlayerBase : MonoBehaviour
     public void SetTarget(GameObject go, Vector3 hitpos)
     {  
         attackTarget = go;
-        this.hitpos = hitpos;
-        
+        this.hitpos = hitpos;        
     }
 }
