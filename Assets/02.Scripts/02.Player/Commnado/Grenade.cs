@@ -21,10 +21,6 @@ public class Grenade : SkillBase
         base.Excute();
         animator.SetTrigger(hashGrenade);
     }
-    protected override bool Trigger()
-    {
-        return Input.GetKey(KeyCode.R);
-    }
     public void Throw()
     {
         grenade.transform.position = rightHand.transform.position;

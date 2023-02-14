@@ -2469,8 +2469,8 @@ MonoBehaviour:
   DamageInc: 2.4
   Speed: 7
   Armor: 0
-  CriticalChance: 0
-  CriticalMultiplayer: 0
+  CriticalChance: 0.1
+  CriticalMultiplayer: 2
 --- !u!114 &8550507534173101646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2506,6 +2506,7 @@ MonoBehaviour:
   runFov: 60
   fovChangeSpeed: 5
   attackDef: {fileID: 11400000, guid: e314e06c03805b548b12ed12351fa31d, type: 2}
+  catcher: {fileID: 0}
   muzzleLeft: {fileID: 228895403412117639}
   muzzleRight: {fileID: 1699703679064165018}
   muzzleflash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
@@ -2613,9 +2614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolTime: 4
-  coolDownImg: {fileID: 0}
+  img: {fileID: 0}
   outLine: {fileID: 0}
-  coolNumTex: {fileID: 0}
   speedScale: 3
 --- !u!136 &2771453269290771019
 CapsuleCollider:
@@ -2644,9 +2644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolTime: 3
-  coolDownImg: {fileID: 0}
+  img: {fileID: 0}
   outLine: {fileID: 0}
-  coolNumTex: {fileID: 0}
   leftMuzzle: {fileID: 228895403412117639}
   rightMuzzle: {fileID: 1699703679064165018}
   particle: {fileID: 198234346748616026, guid: 8dacb6ca50956ab49a3477fc1a22c786, type: 3}
@@ -2664,10 +2663,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolTime: 7
-  coolDownImg: {fileID: 0}
+  img: {fileID: 0}
   outLine: {fileID: 0}
-  coolNumTex: {fileID: 0}
-  grenade: {fileID: 0}
+  grenade: {fileID: 1208535753553356072, guid: 1a6f6b255b89f2f4c875611a88a08d9f, type: 3}
   rightHand: {fileID: 3269083777669248757}
   throwStr: 5
 --- !u!1 &4634872096366558699

@@ -20,8 +20,10 @@ public class RotationInput : MonoBehaviour, IPointerDownHandler
     }
     private void CheckFingerUp()
     {
-        var index = FingerIdMatching();
-        Debug.Log(index);
+        if (ID == -1)
+            return;
+
+        var index = FingerIdMatching();        
         if (index == -1)
         {
             ID = -1;

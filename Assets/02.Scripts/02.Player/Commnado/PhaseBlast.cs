@@ -37,10 +37,6 @@ public class PhaseBlast : SkillBase
             instances[i].gameObject.SetActive(false);
         }
     }
-    protected override bool Trigger()
-    {
-        return Input.GetMouseButton(1);        
-    }
     protected override void Excute()
     {
         base.Excute();

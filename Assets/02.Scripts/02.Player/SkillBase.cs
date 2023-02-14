@@ -13,40 +13,24 @@ public class SkillBase : MonoBehaviour
     protected float timer = 0f;
     protected bool isOn;    
        
-    public Image coolDownImg;
-    public RawImage outLine;
-    public TextMeshProUGUI coolNumTex;
+    public RawImage img;
+    public Image outLine;    
     protected virtual void Start()
     {
         commando = GetComponent<CommandoBase>();
         animator = GetComponent<Animator>();
-        stats = GetComponent<Stats>();
+        stats = GetComponent<Stats>();        
+        InitTimeSet();
     }
     protected virtual void Update()
     {
         CheckCoolDown();
-        UpdateUI();
-        TryExcute();
+        UpdateUI();       
     }
     protected void CheckCoolDown()
     {
-        timer -= Time.deltaTime;
-        isOn = timer < 0f;
-    }
-    protected virtual void TryExcute()
-    {
-        if (!isOn)
-            return;
-
-        if(Trigger())
-        {
-            Excute();
-            timer = coolTime;            
-        }
-    }
-    protected virtual bool Trigger()
-    {
-        return false;
+        timer += Time.deltaTime;
+        isOn = timer > coolTime;
     }
     protected virtual void Excute()
     {
@@ -55,20 +39,28 @@ public class SkillBase : MonoBehaviour
     private void UpdateUI()
     {
         UpdateImg();
-        UpdateOutLine();
-        UpdateCooldownText();
+        UpdateOutLine();        
     }
     private void UpdateImg()
     {
-        coolDownImg.fillAmount = timer / coolTime;        
+        var color = Color.white;
+        color.a = isOn ? 1f : 0.2f;
+        img.color = color;
     } 
+    protected void InitTimeSet()
+    {
+        timer = coolTime;
+    }
     private void UpdateOutLine()
-    {
-        outLine.gameObject.SetActive(isOn);
+    {        
+        outLine.fillAmount = timer / coolTime;
     }
-    private void UpdateCooldownText()
+    public void TryExcute()
     {
-        coolNumTex.gameObject.SetActive(!isOn);
-        coolNumTex.text = ((int)Mathf.Clamp(timer + 1, 1, coolTime + 1)).ToString();
-    }
+        if (!isOn)
+            return;
+
+        Excute();
+        timer = 0f;
+    }  
 }

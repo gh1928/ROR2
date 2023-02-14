@@ -51,7 +51,7 @@ public class PlayerBase : MonoBehaviour
     public GameObject AttackTarget { get { return attackTarget; } }
     private float baseAttackSpeed;
     private float attackSpeedScale = 1f;
-    
+
     protected virtual void Awake()
     {
         Instance = this;
@@ -68,10 +68,11 @@ public class PlayerBase : MonoBehaviour
     {
         UpdateAnimation();        
         UpdateRotation();
-        TryJump();
-        TrySprint();
         IsFalling();
+        CheckSprintAble();
         TryAttack();    
+        //TryJump();
+        //TrySprint();
     }
     private void FixedUpdate()
     {
@@ -110,9 +111,9 @@ public class PlayerBase : MonoBehaviour
         characterRotationY.y = yRotation * turnSpeed;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(characterRotationY));
     } 
-    protected virtual void TryJump()
+    public virtual void TryJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (isGround)
         {
             Jump();
         }        
@@ -130,22 +131,21 @@ public class PlayerBase : MonoBehaviour
     {        
         animator.SetBool(hashIsGround, isGround = false);        
     } 
-    private void TrySprint()
+    private void CheckSprintAble()
     {
-        if (Input.GetAxisRaw("Vertical") <= 0 && isSprint)
+        if (direction.y <= 0 && isSprint)
         {
             StopSprint();
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+    }
+    public void TrySprint()
+    {
+        if (isSprint)
         {
-            if(isSprint)
-            {
-                StopSprint();
-                return;
-            }
-            Sprint();
+            StopSprint();
+            return;
         }
+        Sprint();
     }
     private void Sprint()
     {
@@ -196,11 +196,11 @@ public class PlayerBase : MonoBehaviour
     }
     private void TryAttack()
     {
-        if (Input.GetMouseButton(0))
+        if(AttackInput.ID != -1)
         {
             Attack();
         }
-        if (Input.GetMouseButtonUp(0))
+        else
         {
             StopAttack();
         }

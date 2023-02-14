@@ -10,5 +10,12 @@ public class GameManager : Singleton<GameManager>
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
-    }  
+    }
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 }

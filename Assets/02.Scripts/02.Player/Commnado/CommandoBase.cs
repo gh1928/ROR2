@@ -23,7 +23,7 @@ public class CommandoBase : PlayerBase
         hitEffect = GetComponent<CommandoHitEffect>();
         slide = GetComponent<Slide>();
     }
-    protected override void TryJump()
+    public override void TryJump()
     {
         if (slide.IsSliding)
             return; 
