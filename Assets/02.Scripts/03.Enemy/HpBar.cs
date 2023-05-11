@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,11 +66,11 @@ public class HpBar : MonoBehaviour
         if (hpBar.transform.position.z < 0f)
             canvasGroup.alpha = 0f;
 
-        hpBar.value = stats.Health / enemyBase.MaxHp;        
+        hpBar.value = stats.Health / enemyBase.MaxHp;
     }
     public void DieTriggered()
     {
-        Invoke("BarStop", 1f);        
+        Invoke(nameof(BarStop), 1f);        
     }
     private void BarStop()
     {

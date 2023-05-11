@@ -1,14 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class TeleporterEvent : MonoBehaviour
 {
-    private bool isStarted = false;
+    private bool isBossEventStarted = false;
+    private bool isClearEventStarted = false;
     private Transform player;
     private float distanceToPlayer;
-    public GameObject textMesh;
+    public GameObject bossEventTxt;
+    public GameObject clearText;
     public float detectionRange = 4f;
     bool isPlayerInRange;
     public GameObject boss;
@@ -25,7 +27,11 @@ public class TeleporterEvent : MonoBehaviour
     Coroutine coCameraShake;
     CinemachineImpulseSource impulseSource;
     public float impulseStrenth = 0.1f;
-    public Color color = Color.red;    
+    public Color color = Color.red;
+
+    public Image fadeEffectPanel;
+    public float fadeTimer = 3f;
+    public GameObject endingTxt;
 
     private void Awake()
     {
@@ -40,18 +46,34 @@ public class TeleporterEvent : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         isPlayerInRange = distanceToPlayer < detectionRange;
 
-        textMesh.SetActive(isPlayerInRange && !isStarted);
+        bossEventTxt.SetActive(isPlayerInRange && !isBossEventStarted);
+        clearText.SetActive(isPlayerInRange && isClearEventStarted);
         TryStartEvent();
+        TryClearEvent();
+
     }
     private void TryStartEvent()
     {
         if(isPlayerInRange &&
             Input.GetKeyDown(KeyCode.E) &&
-            !isStarted)
+            !isBossEventStarted)
         {
             coPrepareEvent = StartCoroutine(CoPrepareEvent());
-            isStarted = true;
+            isBossEventStarted = true;            
         }        
+    }
+
+    public void ClearBoss()
+    {        
+        isClearEventStarted = true;
+    }
+    private void TryClearEvent()
+    {
+        if(isPlayerInRange && Input.GetKeyDown(KeyCode.E) && isClearEventStarted)
+        {
+            isClearEventStarted = false;
+            StartCoroutine(CoFadeOut());
+        }
     }
     IEnumerator CoPrepareEvent()
     {
@@ -94,6 +116,23 @@ public class TeleporterEvent : MonoBehaviour
             impulseSource.GenerateImpulse(randShake);
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    IEnumerator CoFadeOut()
+    {
+        float time = 0f;
+        Color color = Color.black;
+        color.a = 0f;
+
+        while(time < fadeTimer)
+        {
+            time += Time.deltaTime;
+            color.a = time / fadeTimer;            
+            fadeEffectPanel.color = color;  
+            yield return null;
+        }
+
+        endingTxt.SetActive(true);
     }
   
     private void StartEvent()

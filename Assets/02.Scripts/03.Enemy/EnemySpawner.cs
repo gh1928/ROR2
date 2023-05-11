@@ -27,8 +27,6 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Update()
     {
-        spawnTimer += Time.deltaTime;
-
         SpawnRandomEnemy();
 
         if (Input.GetKeyDown(KeyCode.G))
@@ -42,6 +40,8 @@ public class EnemySpawner : MonoBehaviour
     }
     private void SpawnRandomEnemy()
     {
+        spawnTimer += Time.deltaTime;
+
         if (spawnTimer < spawnCycle)
             return;
 

@@ -2,6 +2,7 @@ using System;
 using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -42,6 +43,8 @@ public class Vagrant : MonoBehaviour
     private float bombTimer;
     private bool bombOn = false;
     
+    public TeleporterEvent telepoter;
+
     private void Awake()
     {
         stats = GetComponent<Stats>();
@@ -84,7 +87,19 @@ public class Vagrant : MonoBehaviour
         var lvl = GameInfo.Instance.GameLevel;
         MaxHp = baseHp + stats.HealthInc * lvl;
         stats.Damage = baseDamage + stats.DamageInc * lvl;
+
+        if(stats.Health <= 0)
+        {
+            BossClear();
+        }            
     }
+
+    private void BossClear()
+    {
+        gameObject.SetActive(false);
+        telepoter.ClearBoss();
+    }
+
     private void UpdateIdle()
     {
         posTimer += Time.deltaTime;
@@ -141,7 +156,7 @@ public class Vagrant : MonoBehaviour
 
         for(int i = 0; i < bombs.Length; ++i)
         {
-            Invoke("ShotBomb", i * fireRate);
+            Invoke(nameof(ShotBomb), i * fireRate);
         }        
         bombTimer = bombCoolDown;
     }
