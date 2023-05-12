@@ -44,6 +44,7 @@ public class Vagrant : MonoBehaviour
     private bool bombOn = false;
     
     public TeleporterEvent telepoter;
+    private GameObject hpBar;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class Vagrant : MonoBehaviour
         baseDamage = stats.Damage;
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
+        hpBar = GetComponent<BossHp>().hpBar.gameObject;
     }
     private void SpawnEnd()
     {        
@@ -96,6 +98,7 @@ public class Vagrant : MonoBehaviour
 
     private void BossClear()
     {
+        hpBar.SetActive(false);
         gameObject.SetActive(false);
         telepoter.ClearBoss();
     }

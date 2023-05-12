@@ -24,17 +24,7 @@ public class CameraController : MonoBehaviour
     }
     private void CameraXRotation()
     {
-#if UNITY_EDITOR
-
         float xRotation = Input.GetAxis("Mouse Y");
-
-#elif UNITY_ANDROID
-
-        if (Input.touchCount <= 0)
-            return;
-            
-        float xRotation = Input.touches[0].deltaPosition.y;
-#endif
         float cameraRotationX = xRotation * turnSpeed;
         currentCameraRotationX -= cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);

@@ -81,25 +81,19 @@ public class PlayerBase : MonoBehaviour
     }
     private void UpdateAnimation()
     {
-#if UNITY_EDITOR
+
         inputAxis.x = Input.GetAxis("Horizontal");
         inputAxis.y = Input.GetAxis("Vertical");
-#elif UNITY_ANDROID
-        inputAxis.x = moveStick.Horizontal;
-        inputAxis.y = moveStick.Vertical;
-#endif
+
         animator.SetFloat(hashHorizontal, inputAxis.x);
         animator.SetFloat(hashVertical, inputAxis.y);
     }
     private void UpdateMove()
     {
-#if UNITY_EDITOR
+
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
-#elif UNITY_ANDROID
-        direction.x = moveStick.Horizontal;
-        direction.y = moveStick.Vertical;
-#endif
+
         Vector3 velocity = (transform.right * direction.x + transform.forward * direction.y).normalized * stats.Speed;
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
@@ -107,17 +101,11 @@ public class PlayerBase : MonoBehaviour
  
     private void UpdateRotation()
     {
-#if UNITY_EDITOR
+
 
         float yRotation = Input.GetAxis("Mouse X");        
 
-#elif UNITY_ANDROID
 
-        if (Input.touchCount <= 0)
-            return;
-
-        float yRotation = Input.touches[0].deltaPosition.x * Screen.dpi;
-#endif
         characterRotationY.y = yRotation * turnSpeed;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(characterRotationY));
     } 

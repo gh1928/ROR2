@@ -3748,6 +3748,14 @@ PrefabInstance:
       propertyPath: cameraStick
       value: 
       objectReference: {fileID: 516121136}
+    - target: {fileID: 3867349232373233266, guid: ea2478b2faab2c6498acc86926a2ccf5, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867349232373233266, guid: ea2478b2faab2c6498acc86926a2ccf5, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4021165032174495075, guid: ea2478b2faab2c6498acc86926a2ccf5, type: 3}
       propertyPath: m_RootOrder
       value: 4
